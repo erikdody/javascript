@@ -4,23 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        body {
-            font: normal 20pt Arial;
-        }
-    </style>
-</head>
+    <script>
+        function mostrarFoto(a) {
+/*
+* aqui chamamos as duas divs do nosso html:
+* "imagem" e "descricao"
+*/
+    var element = document.getElementById("imagem");
+	var element2 = document.getElementById("descricao");
+
+/*
+* mostrarFoto() está recebendo uma variavel, 'a'
+* que nos dirá o que o usuário escolheu
+*/
+    if (a == "ficcao") {
+		element.innerHTML = "<br> <img src='3.webp'</img>";
+		
+        element2.innerHTML = "<p>Harry Potter (Daniel Radcliffe) retorna à Escola de Magia e Bruxaria de Hogwarts, para cursar o 5º ano letivo. ... Além disto, o Ministro da Magia Cornélio Fudge (Robert Hardy) impõe à escola a presença de Dolores Umbridge (Imelda Staunton), que torna-se a nova professora de Defesa Contra as Artes das Trevas.</p>";
+	}
+
+	else if (a == "didatico") {
+		element.innerHTML = "<br><img src='1.jpg' width='245'</img>";
+		
+        element2.innerHTML = "<p>Papai e mamãe decidiram contar aos filhos como são feitos os bebês. E inventaram um monte de besteiras, sem saber que as crianças já sabiam de toda a verdade.</p>";
+	}
+}
+    </script>
+    
+    
+    
 <body>
      
     
-    <script>
-        var nome = window.prompt('Qual é seu nome?')
-        document.write(` Olá, ${nome}. Seu nome tem ${nome.length} letras <br>`) // vai perguntar o nome
-        document.write(`Seu nome em maiúsculas é ${nome.toUpperCase()} <br>`)
-        
-        document.write(`Seu nome em minúsculas é ${nome.toLowerCase()}`)
+    
 
-
-    </script>
+    <select id="genero" onchange="mostrarFoto(value)">
+        <option value="escolha"> Escolha... </option>
+        <option value="ficcao"> Ficcao </option>
+        <option value="didatico"> Didatico </option>
+    </select>
+ <div id="imagem"></div>
+ <div id="descricao"></div>
 </body>
 </html>
